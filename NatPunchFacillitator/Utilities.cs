@@ -40,7 +40,7 @@ namespace FNNP
                 peer.Send(writer, DeliveryMethod.ReliableOrdered);
                 Console.WriteLine("connected to: " + peer.EndPoint);
             } ;
-            listener.NetworkReceiveEvent += (fromPeer, dataReader, deliveryMethod) =>
+            listener.NetworkReceiveEvent += (fromPeer, dataReader, channelNumber, deliveryMethod) =>
             {
                 publicIp = dataReader.GetString(100 /* max length of string */);
                 Console.WriteLine($"We got: {publicIp}");
